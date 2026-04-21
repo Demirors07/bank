@@ -6,7 +6,7 @@ services:
     container_name: mysqldb
     environment:
       MYSQL_DATABASE: devopsdb
-      MYSQL_USER: myuser
+      MYSQL_USER: devuser
       MYSQL_PASSWORD: 1234
       MYSQL_ROOT_PASSWORD: 1234
     ports:
@@ -23,7 +23,7 @@ services:
       - "80:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/devopsdb
-      SPRING_DATASOURCE_USERNAME: myuser
+      SPRING_DATASOURCE_USERNAME: devuser
       SPRING_DATASOURCE_PASSWORD: 1234
       SPRING_JPA_HIBERNATE_DDL_AUTO: none
       SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQL8Dialect
