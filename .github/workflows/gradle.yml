@@ -56,7 +56,7 @@
     
 
 
-name: Proj3-Banking_Management-3  CI/CD
+name: Proj3-Banking_Management-3 CI/CD
 
 on:
   push:
