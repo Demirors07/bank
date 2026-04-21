@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bashh
 
 # Varsa eski konteynerleri durdur ve temizle
 sudo docker compose down || true
