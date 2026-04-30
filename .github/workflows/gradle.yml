@@ -80,7 +80,7 @@ jobs:
       uses: gradle/actions/setup-gradle@v4
 
     - name: Build with Gradle
-      run: ./gradlew build -x test # Testleri atlamak için -x test eklenebilir
+      run: ./gradlew build -x test # To skip the tests -x
 
     - name: Login to DockerHub
       uses: docker/login-action@v3
@@ -96,12 +96,12 @@ jobs:
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/bank-app:latest
 
   deploy:
-    needs: build-and-push # Sadece build başarılıysa çalışır
+    needs: build-and-push # It only works if the build is successful.
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
 
-    # Script ve compose dosyalarını sunucuya kopyala (Hocanın istediği transfer adımı)
+    # Copy the script, init sql file and compose files to the server.
     - name: Copy files to EC2
       uses: appleboy/scp-action@v0.1.7
       with:
@@ -111,7 +111,7 @@ jobs:
         source: "docker-compose.yaml,deploy.sh,init.sql"
         target: "~/"
 
-    # Sunucuda script'i çalıştır
+    # Run the script on the server.
     - name: Execute Remote Deployment Script
       uses: appleboy/ssh-action@v1.0.3
       with:

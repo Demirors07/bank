@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Varsa eski konteynerleri durdur ve temizle
+# If there are old containers, stop and clean them.
 sudo docker compose down || true
 
-# En güncel imajı DockerHub'dan çek
+# Pull the latest image from DockerHub.
 sudo docker compose pull
 
-# Uygulamayı arka planda başlat
+# Start the app in the background.
 sudo docker compose up -d
 
-# Kullanılmayan eski imajları temizle (disk dolmaması için)
+# Clean unused old images (to prevent the disk from filling up).
 sudo docker image prune -f
