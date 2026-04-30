@@ -19,7 +19,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String getIndex() {
-        return "<b>SWE 304 PROJECT STUDY 1</b>";
+        return "<b>SWE 304 Banking Management-3</b>";
     }
 
     /* @GetMapping("/customer")
