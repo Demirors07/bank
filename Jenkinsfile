@@ -13,7 +13,7 @@ pipeline {
     triggers {
         githubPush()
     }
-
+// 
     stages {
         stage('Build Jar') {
             steps {
