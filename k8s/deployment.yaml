@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proj4-app-deployment
+  labels:
+    app: bank-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bank-app
+      
+  template:
+    metadata:
+      labels:
+        app: bank-app
+    spec:
+      containers:
+      - name: bank-app
+        image: karne07/bank-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+      restartPolicy: Always
