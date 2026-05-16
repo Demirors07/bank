@@ -15,7 +15,7 @@ pipeline {
         stage('Build Jar') {
             steps {
                 // Kodu GitHub'dan çekiyoruz
-                git branch: 'main', url: 'https://github.com/Demirors07/bank.git'
+                git branch: 'master', url: 'https://github.com/Demirors07/bank.git'
                 
                 // Lokal gradle kurma derdi olmasın diye proje içindeki gradlew'i tetikliyoruz.
                 // Çalıştırılabilme yetkisi (chmod) verip ayağa kaldırıyoruz.
