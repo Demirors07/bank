@@ -18,7 +18,7 @@ spec:
       containers:
       - name: bank-app
         image: karne07/bank-app:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
       restartPolicy: Always
