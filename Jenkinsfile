@@ -29,7 +29,7 @@ pipeline {
         
         stage('Build Docker image') {
             steps {
-                sh "docker build -t DOCKER_IMAGE_NAME:DOCKER_IMAGE_TAG ."
+                sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
             }
         }
         
@@ -43,7 +43,7 @@ pipeline {
         
         stage('Push the image') {
             steps {
-                sh "docker push DOCKER_IMAGE_NAME:DOCKER_IMAGE_TAG"
+                sh "docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
             }
         }
     }
