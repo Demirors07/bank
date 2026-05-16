@@ -2,6 +2,9 @@ pipeline {
     agent any
     
     environment {
+        DOCKER_IMAGE_NAME = 'karne07/bank-app'
+        DOCKER_IMAGE_TAG = 'latest'
+
         // Jenkins Credentials ID'si 'DockerHub' olan veriyi çeker
         // Otomatik olarak DOCKERHUB_CREDENTIALS_USR ve DOCKERHUB_CREDENTIALS_PSW değişkenlerini üretir
         DOCKERHUB_CREDENTIALS = credentials('DockerHub')
@@ -26,7 +29,7 @@ pipeline {
         
         stage('Build Docker image') {
             steps {
-                sh "docker build -t karne07/bank-app:latest ."
+                sh "docker build -t DOCKER_IMAGE_NAME:DOCKER_IMAGE_TAG ."
             }
         }
         
@@ -40,7 +43,7 @@ pipeline {
         
         stage('Push the image') {
             steps {
-                sh "docker push karne07/bank-app:latest"
+                sh "docker push DOCKER_IMAGE_NAME:DOCKER_IMAGE_TAG"
             }
         }
     }
